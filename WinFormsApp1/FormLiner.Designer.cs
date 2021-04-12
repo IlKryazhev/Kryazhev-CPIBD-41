@@ -31,12 +31,10 @@ namespace WinFormsApp1
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLiner));
             this.pictureBoxLiners = new System.Windows.Forms.PictureBox();
-            this.buttonCreate = new System.Windows.Forms.Button();
             this.buttonLeft = new System.Windows.Forms.Button();
             this.buttonRight = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLiners)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,16 +47,6 @@ namespace WinFormsApp1
             this.pictureBoxLiners.TabIndex = 0;
             this.pictureBoxLiners.TabStop = false;
             this.pictureBoxLiners.Click += new System.EventHandler(this.ButtonMove_Click);
-            // 
-            // buttonCreate
-            // 
-            this.buttonCreate.Location = new System.Drawing.Point(12, 30);
-            this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(112, 34);
-            this.buttonCreate.TabIndex = 1;
-            this.buttonCreate.Text = "Create";
-            this.buttonCreate.UseVisualStyleBackColor = true;
-            this.buttonCreate.Click += new System.EventHandler(this.ButtonCreateLinerClick);
             // 
             // buttonLeft
             // 
@@ -109,28 +97,16 @@ namespace WinFormsApp1
             this.buttonDown.UseVisualStyleBackColor = true;
             this.buttonDown.Click += new System.EventHandler(this.ButtonMove_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(156, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 70);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Create Premiun";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.ButtonCreatePremiumLinerClick);
-            // 
             // FormLiner
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(931, 555);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonDown);
             this.Controls.Add(this.buttonUp);
             this.Controls.Add(this.buttonRight);
             this.Controls.Add(this.buttonLeft);
-            this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.pictureBoxLiners);
             this.Name = "FormLiner";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -143,12 +119,10 @@ namespace WinFormsApp1
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxLiners;
-        private System.Windows.Forms.Button buttonCreate;
         private System.Windows.Forms.Button buttonLeft;
         private System.Windows.Forms.Button buttonRight;
         private System.Windows.Forms.Button buttonUp;
         private System.Windows.Forms.Button buttonDown;
-        private System.Windows.Forms.Button button1;
     }
 }
 

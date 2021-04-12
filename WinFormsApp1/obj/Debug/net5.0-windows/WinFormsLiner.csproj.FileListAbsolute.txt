@@ -17,3 +17,4 @@ C:\Users\Илья\source\repos\WinFormsApp1\WinFormsApp1\obj\Debug\net5.0-window
 C:\Users\Илья\source\repos\WinFormsApp1\WinFormsApp1\obj\Debug\net5.0-windows\ref\WinFormsLiner.dll
 C:\Users\Илья\source\repos\WinFormsApp1\WinFormsApp1\obj\Debug\net5.0-windows\WinFormsLiner.pdb
 C:\Users\Илья\source\repos\WinFormsApp1\WinFormsApp1\obj\Debug\net5.0-windows\WinFormsLiner.genruntimeconfig.cache
+C:\Users\Илья\source\repos\WinFormsApp1\WinFormsApp1\obj\Debug\net5.0-windows\WinFormsLiner.FormPier.resources

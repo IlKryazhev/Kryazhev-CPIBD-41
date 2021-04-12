@@ -33,9 +33,18 @@ namespace WinFormsLiner
 
         public override void DrawTransport(Graphics g)
         {
+            if (!_startPositionX.HasValue || !_startPositionY.HasValue)
+            {
+                return;
+            }
             Pen pen = new Pen(Color.Black);
-            g.DrawRectangle(pen, _startPositionX.Value + 80, _startPositionY.Value - 6, 100, 15);
-           
+            Brush dopBrush = new SolidBrush(DopColor);
+            if (Helipad)
+            {
+                g.DrawRectangle(pen, _startPositionX.Value + 110, _startPositionY.Value + 80, 40, 20);
+                g.FillRectangle(dopBrush, _startPositionX.Value + 110, _startPositionY.Value + 80, 40, 20);
+            }
+            base.DrawTransport(g);
         }
     }
 }

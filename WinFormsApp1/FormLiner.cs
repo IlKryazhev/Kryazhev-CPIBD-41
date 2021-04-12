@@ -19,6 +19,12 @@ namespace WinFormsApp1
             InitializeComponent();
         }
 
+        public void SetLiner(ITransport liner)
+        {
+            _liner = liner;
+            Draw();
+        }
+
         private void Draw()
         {
             Bitmap bmp = new Bitmap(pictureBoxLiners.Width,
@@ -26,24 +32,6 @@ namespace WinFormsApp1
             Graphics gr = Graphics.FromImage(bmp);
             _liner?.DrawTransport(gr);
             pictureBoxLiners.Image = bmp;
-        }
-
-        private void CreateLiner(bool isBase)
-        {
-            Random rnd = new Random();
-            _liner = isBase ? new Liner(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue) : new PremiumLiner(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue, Color.Yellow, true);
-            _liner.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxLiners.Width, pictureBoxLiners.Height);
-            Draw();
-        }
-
-        private void ButtonCreateLinerClick(object sender, EventArgs e)
-        {
-            CreateLiner(true);
-        }
-
-        private void ButtonCreatePremiumLinerClick(object sender, EventArgs e)
-        {
-            CreateLiner(false);
         }
 
         private void ButtonMove_Click(object sender, EventArgs e)
