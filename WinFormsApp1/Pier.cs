@@ -26,14 +26,34 @@ namespace WinFormsLiner
 
         public static bool operator +(Pier<T> p, T liner)
         {
-            p._places[p._places.Length] = liner;
-            return true;
+            for (int index = 0; index < p._places.Length; index++)
+            {
+                if (p._places[index] == null)
+                {
+                    p._places[index] = liner;
+                    if (index <= 7)
+                    {
+                        liner.SetPosition(0, index * p._placeSizeHeight, p._placeSizeWidth - 30, p._placeSizeHeight - 20);
+                    }
+                    if (index > 7 && index <= 14)
+                    {
+                        liner.SetPosition(p._placeSizeWidth, (index - 7) * p._placeSizeHeight, p._placeSizeWidth - 30, p._placeSizeHeight - 20);
+                    }
+                    if (index > 14)
+                    {
+                        liner.SetPosition(p._placeSizeWidth * 2, (index - 14) * p._placeSizeHeight, p._placeSizeWidth - 30, p._placeSizeHeight - 20);
+                    }
+                    return true;
+                }
+            }
+            return false;
         }
 
         public static T operator -(Pier<T> p, int index)
         {
-            p._places[index] = null;
-            return p._places[index];
+            var pickupedLiner = p._places[index];
+            Array.Clear(p._places, index, 1);
+            return pickupedLiner;
         }
 
         public void Draw(Graphics g)

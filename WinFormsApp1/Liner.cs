@@ -68,26 +68,26 @@ namespace WinFormsLiner
             Pen pen = new Pen(Color.Black);
             Brush brBlue = new SolidBrush(Color.LightBlue);
             Brush brGreen = new SolidBrush(Color.LightGreen);
-            g.FillRectangle(brBlue, _startPositionX.Value + 80, _startPositionY.Value + 100, 100, 15);
+            g.FillRectangle(brBlue, _startPositionX.Value + 20, _startPositionY.Value + 20, 100, 15);
 
             g.FillPolygon(brGreen, new Point[] {
-                new Point((int)(_startPositionX.Value + 60), (int)(_startPositionY.Value + 115)),
-                new Point((int)(_startPositionX.Value + 200), (int)(_startPositionY.Value + 115)),
-                new Point((int)(_startPositionX.Value + 180), (int)(_startPositionY.Value + 145)),
-                new Point((int)(_startPositionX.Value + 80), (int)(_startPositionY.Value + 145)),
+                new Point((int)(_startPositionX.Value), (int)(_startPositionY.Value + 35)),
+                new Point((int)(_startPositionX.Value + 140), (int)(_startPositionY.Value + 35)),
+                new Point((int)(_startPositionX.Value + 120), (int)(_startPositionY.Value + 65)),
+                new Point((int)(_startPositionX.Value + 20), (int)(_startPositionY.Value + 65)),
             });
 
-            g.DrawRectangle(pen, _startPositionX.Value + 80, _startPositionY.Value + 100, 100, 15);
+            g.DrawRectangle(pen, _startPositionX.Value + 20, _startPositionY.Value + 20, 100, 15);
             
 
-            g.DrawLine(pen, _startPositionX.Value + 60, _startPositionY.Value + 115, _startPositionX.Value + 200, _startPositionY.Value + 115);
-            g.DrawLine(pen, _startPositionX.Value + 80, _startPositionY.Value + 145, _startPositionX.Value + 180, _startPositionY.Value + 145);
+            g.DrawLine(pen, _startPositionX.Value, _startPositionY.Value + 35, _startPositionX.Value + 140, _startPositionY.Value + 35);
+            g.DrawLine(pen, _startPositionX.Value + 20, _startPositionY.Value + 65, _startPositionX.Value + 120, _startPositionY.Value + 65);
 
-            g.DrawLine(pen, _startPositionX.Value + 60, _startPositionY.Value + 115, _startPositionX.Value + 80, _startPositionY.Value + 145);
-            g.DrawLine(pen, _startPositionX.Value + 180, _startPositionY.Value + 145, _startPositionX.Value + 200, _startPositionY.Value + 115);
+            g.DrawLine(pen, _startPositionX.Value, _startPositionY.Value + 35, _startPositionX.Value + 20, _startPositionY.Value + 65);
+            g.DrawLine(pen, _startPositionX.Value + 120, _startPositionY.Value + 65, _startPositionX.Value + 140, _startPositionY.Value + 35);
 
-            g.DrawLine(pen, _startPositionX.Value + 80, _startPositionY.Value + 120, _startPositionX.Value + 80, _startPositionY.Value + 135);
-            g.DrawLine(pen, _startPositionX.Value + 75, _startPositionY.Value + 129, _startPositionX.Value + 85, _startPositionY.Value + 129);
+            g.DrawLine(pen, _startPositionX.Value + 20, _startPositionY.Value + 40, _startPositionX.Value + 20, _startPositionY.Value + 55);
+            g.DrawLine(pen, _startPositionX.Value + 15, _startPositionY.Value + 49, _startPositionX.Value + 25, _startPositionY.Value + 49);
 
 
         }

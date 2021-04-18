@@ -41,8 +41,8 @@ namespace WinFormsLiner
             Brush dopBrush = new SolidBrush(DopColor);
             if (Helipad)
             {
-                g.DrawRectangle(pen, _startPositionX.Value + 110, _startPositionY.Value + 80, 40, 20);
-                g.FillRectangle(dopBrush, _startPositionX.Value + 110, _startPositionY.Value + 80, 40, 20);
+                g.DrawRectangle(pen, _startPositionX.Value + 50, _startPositionY.Value, 40, 20);
+                g.FillRectangle(dopBrush, _startPositionX.Value + 50, _startPositionY.Value, 40, 20);
             }
             base.DrawTransport(g);
         }
