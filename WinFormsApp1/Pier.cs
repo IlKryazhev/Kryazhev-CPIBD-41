@@ -9,7 +9,8 @@ namespace WinFormsLiner
 {
     class Pier<T> where T : class, ITransport
     {
-        private readonly T[] _places;
+        private readonly List<T> _places;
+        private readonly int _maxCount;
         private readonly int _pictureWidth;
         private readonly int _pictureHeight;
         private readonly int _placeSizeWidth = 210;
@@ -19,49 +20,52 @@ namespace WinFormsLiner
         {
             int width = picWidth / _placeSizeWidth;
             int height = picHeight / _placeSizeHeight;
-            _places = new T[width * height];
+            _maxCount = width * height;
             _pictureHeight = picHeight;
             _pictureWidth = picWidth;
+            _places = new List<T>();
         }
 
         public static bool operator +(Pier<T> p, T liner)
         {
-            for (int index = 0; index < p._places.Length; index++)
+            if(p._places.Count == p._maxCount)
             {
-                if (p._places[index] == null)
-                {
-                    p._places[index] = liner;
-                    if (index <= 7)
-                    {
-                        liner.SetPosition(0, index * p._placeSizeHeight, p._placeSizeWidth - 30, p._placeSizeHeight - 20);
-                    }
-                    if (index > 7 && index <= 14)
-                    {
-                        liner.SetPosition(p._placeSizeWidth, (index - 7) * p._placeSizeHeight, p._placeSizeWidth - 30, p._placeSizeHeight - 20);
-                    }
-                    if (index > 14)
-                    {
-                        liner.SetPosition(p._placeSizeWidth * 2, (index - 14) * p._placeSizeHeight, p._placeSizeWidth - 30, p._placeSizeHeight - 20);
-                    }
-                    return true;
-                }
+                return false;
             }
-            return false;
+            var index = p._places.Count;
+            p._places.Add(liner);
+           
+            if (index <= 7)
+            {
+                liner.SetPosition(0, index * p._placeSizeHeight, p._placeSizeWidth - 30, p._placeSizeHeight - 20);
+            }
+            if (index > 7 && index <= 14)
+            {
+                liner.SetPosition(p._placeSizeWidth, (index - 7) * p._placeSizeHeight, p._placeSizeWidth - 30, p._placeSizeHeight - 20);
+            }
+            if (index > 14)
+            {
+                liner.SetPosition(p._placeSizeWidth * 2, (index - 14) * p._placeSizeHeight, p._placeSizeWidth - 30, p._placeSizeHeight - 20);
+            }
+            return true;
         }
 
         public static T operator -(Pier<T> p, int index)
         {
             var pickupedLiner = p._places[index];
-            Array.Clear(p._places, index, 1);
+            p._places.RemoveAt(index);
             return pickupedLiner;
         }
 
         public void Draw(Graphics g)
         {
             DrawMarking(g);
-            for (int i = 0; i < _places.Length; i++)
+            for (int i = 0; i < _places.Count; i++)
             {
-                _places[i]?.DrawTransport(g);
+                _places[i].SetPosition(5 + i / 5 * _placeSizeWidth + 5, i %
+                    5 * _placeSizeHeight + 15, _pictureWidth, _pictureHeight);
+                _places[i].DrawTransport(g);
+
             }
         }
 
